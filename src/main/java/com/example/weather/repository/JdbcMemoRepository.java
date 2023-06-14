@@ -31,14 +31,14 @@ public class JdbcMemoRepository {
         return jdbcTemplate.query(sql, memoRowMapper());
     }
 
-    public Optional<Memo> findById(int id) {
+    public Optional<Memo> findById(Long id) {
         String sql = "select * from memo where id = ?";
         return jdbcTemplate.query(sql, memoRowMapper(), id).stream().findFirst();
     }
 
     private RowMapper<Memo> memoRowMapper() {
         return ((rs, rowNum) -> new Memo(
-                rs.getInt("id"),
+                rs.getLong("id"),
                 rs.getString("text")
         ));
     }
