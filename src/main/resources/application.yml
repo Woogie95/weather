@@ -7,3 +7,18 @@ spring:
   thymeleaf:
     cache: false
 
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        format_sql: true
+
+
+
+openweathermap:
+  key: ab6983d6ab3f20e1909654f3f3197705
