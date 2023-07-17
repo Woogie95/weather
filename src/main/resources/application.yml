@@ -18,7 +18,8 @@ spring:
       hibernate:
         format_sql: true
 
-
-
 openweathermap:
   key: ab6983d6ab3f20e1909654f3f3197705
+
+logging:
+  config: classpath:logback-spring.xml

@@ -1,5 +1,6 @@
 package com.example.weather.service;
 
+import com.example.weather.WeatherApplication;
 import com.example.weather.entity.DateWeather;
 import com.example.weather.entity.Diary;
 import com.example.weather.repository.DateWeatherRepository;
@@ -9,6 +10,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -29,6 +32,9 @@ import java.util.Map;
 @Transactional
 public class DiaryService {
 
+    private static final Logger logger = LoggerFactory.getLogger(WeatherApplication.class);
+
+
     @Value("${openweathermap.key}")
     private String apiKey;
 
@@ -37,6 +43,7 @@ public class DiaryService {
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public void createDiary(LocalDate date, String text) {
+        logger.info("started to create diary");
         // 날씨 데이터 가져오기
         DateWeather dateWeather = getDateWeather(date);
 
@@ -45,10 +52,12 @@ public class DiaryService {
         nowDiary.setDateWeather(dateWeather);
         nowDiary.setText(text);
         diaryRepository.save(nowDiary);
+        logger.info("end to create diary");
     }
 
     @Transactional(readOnly = true)
     public List<Diary> readDiary(LocalDate date) {
+        logger.debug("read diary");
         return diaryRepository.findAllByDate(date);
     }
 
