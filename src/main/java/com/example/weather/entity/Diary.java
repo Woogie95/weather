@@ -41,6 +41,6 @@ public class Diary {
         this.date = dateWeather.getDate();
         this.weather = dateWeather.getWeather();
         this.icon = dateWeather.getIcon();
-        this.temperature = dateWeather.getTemperature();
+        this.temperature = dateWeather.getTemperature() ;
     }
 }
