@@ -6,6 +6,10 @@ spring:
     password: tjddnr12
   thymeleaf:
     cache: false
+#    스웨거 추가
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
