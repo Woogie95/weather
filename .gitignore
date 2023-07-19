@@ -6,8 +6,6 @@ build/
 !**/src/test/**/build/
 logs
 
-secrets
-
 
 ### STS ###
 .apt_generated
@@ -22,6 +20,7 @@ bin/
 !**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
+secrets
 .idea
 *.iws거
 *.iml
