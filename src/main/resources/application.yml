@@ -6,7 +6,7 @@ spring:
     password: tjddnr12
   thymeleaf:
     cache: false
-#    스웨거 추가
+# 스웨거 추가
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -22,8 +22,7 @@ spring:
       hibernate:
         format_sql: true
 
-openweathermap:
-  key: ab6983d6ab3f20e1909654f3f3197705
+# API KEY 값 숨김
 
 logging:
   config: classpath:logback-spring.xml
